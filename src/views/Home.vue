@@ -1,13 +1,32 @@
 <template>
   <div class="home">
-    <h1>This is Homepage</h1>
-    <p class="red white--text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime est commodi deleniti perferendis facere assumenda culpa laborum ducimus explicabo sunt itaque voluptate perspiciatis animi earum inventore magnam necessitatibus, quibusdam harum.</p>
-    <p class="pink lighten-4 red--text text--darken-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt repudiandae voluptatum placeat deserunt qui, porro ipsam itaque? Ex, hic sed. Ea doloremque cum adipisci asperiores rem officia, eveniet culpa sed.</p>
-    <h1 class="display-4">Massive Text</h1>
-    <h4 class="display-1">Smaller Text</h4>
-    <p class="headline">This is a headline</p>
-    <p class="subheadline">This is a subheadline</p>
-    <p class="caption text-uppercase">This is a caption</p>
+    <h1>Homepage</h1>
+
+    <v-btn class="pink white--text">Click</v-btn>
+    <br><br>
+    <v-btn depressed color="pink">click</v-btn><br><br>
+    <v-btn text color="pink">click</v-btn><br><br>
+
+    <v-btn depressed class="pink white--textss">
+      <v-icon left>email</v-icon>
+      <span>Email </span>
+    </v-btn><br><br>
+
+    <v-btn depressed small class="pink white--textss">
+      <v-icon left small>email</v-icon>
+      <span>Email </span>
+    </v-btn><br><br>
+
+    <v-btn depressed large class="pink white--textss">
+      <span left>Email</span>
+      <v-icon large right>email</v-icon>
+    </v-btn><br><br>
+
+    <v-btn fab depressed small dark class="purple white--textss">
+      <v-icon>favorite</v-icon>
+    </v-btn><br><br>
+
+
   </div>
 </template>
 
