@@ -2,6 +2,20 @@
   <div class="dashboard">
     <h1 class="subheading grey--text">Dashboard</h1>
     <v-container flat class="center">
+
+      <v-layout row class="mb-3">
+        <v-btn small text color="grey" @click="sortBy('title')">
+          <v-icon left small>folder</v-icon>
+          <span class="caption text-lowercase">by Project name</span>
+        </v-btn>
+        <v-btn small text color="grey" @click="sortBy('person')">
+          <v-icon left small>person</v-icon>
+          <span class="caption text-lowercase">by Person</span>
+        </v-btn>
+
+      </v-layout>
+
+
       <v-card flat v-for="project in projects" :key="project.title">
         <v-layout  row wrap :class="`pa-3 project ${project.status}`">
           <v-flex xs12 md6 xl3>
@@ -18,7 +32,7 @@
           </v-flex>
            <v-flex xs6 sm4 md2>
              <div class="right">
-              <v-chip small :class="`${project.status} white--text my-2 caption`">{{project.status}}</v-chip>
+              <v-chip :color="project_status(`${project.status}`)" small class="white--text my-2 caption">{{project.status}}</v-chip>
              </div>
           </v-flex>
 
@@ -45,9 +59,21 @@ export default {
         ]
     }
   },
-  components: {
+  methods: {
+     project_status(value) {
+       if (value === "complete") return "#3cd1c2";
+        else if (value === "ongoing") return "#ffaa2c";
+        else if (value === "overdue") return "#f83e70"
+       return "#000"
+    },
+    sortBy(prop){
+      this.projects.sort((a,b)=> a[prop] < b[prop] ? -1:1)
+    }
+
   }
+  
 }
+
 </script>
 <style scoped>
   .project.complete{
@@ -59,13 +85,5 @@ export default {
   .project.overdue{
     border-left: 4px solid #f83e70;
   }
-  .v-chip.complete{
-    background: #3cd1c2;
-  }
-  .v-chip.ongoing{
-    background: #ffaa2c;
-  }
-  .v-chip.overdue{
-    background: #f83e70;
-  }
+
 </style>

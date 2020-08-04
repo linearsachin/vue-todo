@@ -2,7 +2,7 @@
   <v-app app light>
     <Navbar/>
     <v-main class="mx-4 mb-4">
-        <router-view></router-view>
+        <router-view exact></router-view>
     </v-main>
   </v-app>
 </template>
