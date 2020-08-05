@@ -2,17 +2,26 @@
   <div class="dashboard">
     <h1 class="subheading grey--text">Dashboard</h1>
     <v-container flat class="center">
-
+      
       <v-layout row class="mb-3">
-        <v-btn small text color="grey" @click="sortBy('title')">
-          <v-icon left small>folder</v-icon>
-          <span class="caption text-lowercase">by Project name</span>
-        </v-btn>
-        <v-btn small text color="grey" @click="sortBy('person')">
-          <v-icon left small>person</v-icon>
-          <span class="caption text-lowercase">by Person</span>
-        </v-btn>
-
+        <v-tooltip top>
+          <template v-slot:activator="{ on, attrs }">
+          <v-btn small text color="grey" @click="sortBy('title')" v-bind="attrs" v-on="on">
+            <v-icon left small>folder</v-icon>
+            <span class="caption text-lowercase">by Project name</span>
+          </v-btn>
+          </template>
+          <span>Sort by project name</span>
+        </v-tooltip>
+        <v-tooltip top>
+          <template v-slot:activator="{ on, attrs }">
+          <v-btn small text color="grey" @click="sortBy('person')" v-bind="attrs" v-on="on">
+            <v-icon left small>person</v-icon>
+            <span class="caption text-lowercase">by Person</span>
+          </v-btn>
+          </template>
+          <span>Sort by person</span>
+        </v-tooltip>
       </v-layout>
 
 
