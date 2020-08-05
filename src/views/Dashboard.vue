@@ -1,8 +1,8 @@
 <template>
-  <div class="dashboard">
+  <div class="dashboard pa-2">
     <h1 class="subheading grey--text">Dashboard</h1>
-    <v-container flat class="center">
-      
+    <v-container flat class="center pa-8 ma-auto">
+
       <v-layout row class="mb-3">
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
