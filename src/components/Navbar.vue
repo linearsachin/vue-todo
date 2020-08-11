@@ -6,6 +6,39 @@
                 <span>Todo</span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
+
+
+            <v-menu offset-y flat>
+            <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                color="primary"
+                dark
+                v-bind="attrs"
+                v-on="on"
+                text
+                > 
+                <v-icon left>expand_more</v-icon>
+                <span>Menu</span>
+                </v-btn>
+            </template>
+            <v-list>
+                <v-list-item
+                v-for="link in links"
+                :key="link.icon"
+                router :to="link.route"
+                >
+                    <v-list-item-title>
+                        <span>{{ link.text }}</span>
+                    </v-list-item-title>
+                </v-list-item>
+            </v-list>
+            </v-menu>
+
+
+
+
+
+
             <v-btn text color="grey">
                 <span>Sign Out</span>
                 <v-icon right>exit_to_app</v-icon>
