@@ -4,16 +4,6 @@
     <v-container class="my-5">
 
     <v-expansion-panels
-      :accordion="accordion"
-      :popout="popout"
-      :inset="inset"
-      :multiple="multiple"
-      :focusable="focusable"
-      :disabled="disabled"
-      :readonly="readonly"
-      :flat="flat"
-      :hover="hover"
-      :tile="tile"
       v-for="project in myProjects"
       :key="project.person"
       
