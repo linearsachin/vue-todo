@@ -17,9 +17,9 @@
                 <h2>Add a new Project</h2>
             </v-card-title>
             <v-card-text>
-                <v-form class="px-3">
-                    <v-text-field label="Title" v-model="title" prepend-icon="folder"></v-text-field>
-                    <v-textarea label="Content" v-model="content" prepend-icon="edit"></v-textarea>
+                <v-form class="px-3" ref="form">
+                    <v-text-field label="Title" v-model="title" prepend-icon="folder" :rules="inputRules"></v-text-field>
+                    <v-textarea label="Content" v-model="content" prepend-icon="edit" :rules="inputRules"></v-textarea>
                     <v-menu>
                         <template v-slot:activator="{ on, attrs }">
                             <v-text-field
@@ -28,6 +28,7 @@
                             v-bind="attrs"
                             v-on="on"
                             @click:clear="due = null"
+                            :rules="inputRules"
                             ></v-text-field>
                         </template>
                         <v-date-picker
@@ -50,12 +51,18 @@ export default {
             title:'',
             content:'',
             due:null,
+            inputRules: [
+                v => !!v || 'This field is required',
+                v => v.length >= 3 || 'Minimum length is 3 characters'
+            ]
 
         }
     },
     methods:{
         submit(){
-            console.log(this.title, this.content);
+            if(this.$refs.form.validate()) {
+                console.log(this.title, this.content)
+            }     
         }
     },
     computed: {
