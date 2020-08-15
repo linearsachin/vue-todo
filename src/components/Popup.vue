@@ -43,6 +43,7 @@
 
 <script>
 import format from 'date-fns/format'
+import parseISO from 'date-fns/parseISO'
 export default {
     data(){
         return{
@@ -59,7 +60,7 @@ export default {
     },
     computed: {
         formattedDate(){
-            return this.due ? format(this.due, 'MMMM do yyyy') : ''
+            return this.due ? format(parseISO(this.due), 'do MMM yyyy') : ''
         },
     }
 }
